@@ -1,0 +1,12 @@
+language: go
+
+go:
+    - 1.4.2
+
+intstall:
+    - echo "Skip install"
+    - export GOPATH="${TRAVIS_BUILD_DIR}/bigobj-cli/Godeps/_workspace:${TRAVIS_BUILD_DIR}/csvloader/Godeps/_workspace:$GOPATH"
+
+script:
+    - go install ./bigobj-cli
+    - go install ./csvloader
