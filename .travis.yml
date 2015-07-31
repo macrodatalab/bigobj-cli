@@ -6,3 +6,13 @@ go:
 script:
     - go install ./bigobj-cli
     - go install ./csvloader
+
+before_deploy: tar zxvf bigobj-cli-tools.tgz ${GOPATH}/bin/*
+
+deploy:
+    provider: releases
+    api_key:
+        secure: qsxF/s38gpGUQa+0D8d1crStG2hsoofKzAashT9KMCjyUSQGVy4MyNOY3N56NXMTSNhwiQCiL8Kui0vFOgSa5iRqO7Nywx3IgUnsm7ppQFWtUp8cuNoKLwpYRvnNnKSKElizI7ZnRf6HF3jRA2H8DSQk5u1MbZ7MVLUTzy7xWdAVmoXGz7Wkix3DQAhVJX6PeRn8lbbxXnW7tc4gDFMghrwiUtagazyws2yUJ2IUoWb9FZ2O0tBA/iKsJy3f5jzMkMOjkGS6/WYurhS5Bd7NFXGXmxeyJGuP/+NQ++Ieatw3jBH9eGykmgsgV/SeTqWr1eLYYfuFBsvYRG9qlMm5nywzewACJTa30PNJvZIsNE0jx7BO5x2qLNG0ZeV8vZLLhSzdaHaX+p2d+cMh3Y8mYut/Mfun94XDD5FZN3fWYXxeneBEFycuESqOLJ1wIUeoSkckZy1qm9UN2KHWbGYpEQ2A0uIrO6q73Md7DJ3hEiVSv6bEDQmt8qF6IZrtyC4RsdDrnvkuxPWtqQAAlbuG52w2QC+ZpsEA0+mhGUg0nWV/sPO5azheqy+QI3+PcOWiv77HvyfCX/Sjsti0Z9IVdfqZ+EmQ2cdwRipKTJWn1I1wtY4NcPszB8fsZFIHq/aX1l/EoiMjkIakrZ/gBsOq8ToxJ/jANlic/lH3yAeD/4Q=
+    file: bigobj-cli-tools.tgz
+    on:
+        tags: true
