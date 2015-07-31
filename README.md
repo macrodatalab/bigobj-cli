@@ -1,2 +1,2 @@
-# bigobj-cli
-BigObject client for terminal implemented WebSocket
+# BigObject tools
+Go based toolkit for BigObject service
