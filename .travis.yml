@@ -7,7 +7,7 @@ script:
     - go install ./bigobj-cli
     - go install ./csvloader
 
-before_deploy: tar zxvf bigobj-cli-tools.tgz ${GOPATH}/bin/*
+before_deploy: tar czvf bigobj-cli-tools.tgz -C ${GOPATH}/bin bigobj-cli csvloader
 
 deploy:
     provider: releases
