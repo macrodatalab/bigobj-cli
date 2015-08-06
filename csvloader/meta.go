@@ -103,8 +103,8 @@ func NewDateConv(colinfo schema.Columns) (dfmth *DateFmtHandle) {
 		} else {
 			var df string = ci.Datefmt
 			dfmth.fmtf[idx] = func(i string) (o string) {
-				t, _ := datefmt.Strptime(i, df)
-				o, _ = datefmt.Strftime(t, StdDateFmt)
+				t, _ := datefmt.Strptime(df, i)
+				o, _ = datefmt.Strftime(StdDateFmt, t)
 				return
 			}
 		}
